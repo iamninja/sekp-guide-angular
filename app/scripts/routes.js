@@ -78,6 +78,10 @@ angular.module('sekpGuideApp')
         templateUrl: 'views/guide.html',
         controller: 'GuideCtrl'
       })
+      .whenAuthenticated('/manageGuide', {
+        templateUrl: 'views/manageguide.html',
+        controller: 'ManageguideCtrl'
+      })
       .otherwise({redirectTo: '/'});
   }])
 

@@ -1,1 +1,46 @@
-<p>This is the guide view.</p>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<form class="form-inline">
+			  <div class="form-group">
+			    <label for="search">Αναζήτηση: </label>
+			    <input type="text" class="form-control" id="search" ng-model="query">
+			  </div>
+			</form>
+		</div>
+	</div>
+
+	<br/>
+
+	<div class="row" id="feeds">
+		<article class="animate-articles" ng-animate="animate" ng-repeat="institution in institutions | filter : ignoreAccents" ng-click="openModal(institution)" id="{{institution.$id}}">
+            <h2>{{ institution.name }}</h2>
+            <p class="bold">{{ institution.category.name }}</p>
+            <div>{{ institution.description | limitTo : 200 }}...</div>
+            <footer>Περισσότερα...</footer>
+        </article>
+	</div>
+</div>
+
+<script type="text/ng-template" id="modalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">{{ institution.name }} <small>{{ institution.short }}</small></h3>
+    </div>
+    <div class="modal-body">
+        <ul>
+            <li>Θεσμική υπόσταση: {{ institution.status }}</li>
+            <li>Τομέας φορέα: {{ institution.category.name }}</li>
+            <li>Έτος ύδρισης: {{ institution.year }}</li>
+            <li>Ιστοσελίδα: <a href="{{ institution.website }}" title="{{ institution.name }}">{{ institution.website }}</a></li>
+        </ul>
+        <h3>Περιγραφή</h3>
+        <p>{{ institution.description }}</p>
+        <h3>Αρμοδιότητες</h3>
+        <p>{{ institution.powers }}</p>
+        <h3>Τομείς παρέμβασης</h3>
+        <p>{{ institution.areas }}</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-warning" ng-click="cancel()">Close</button>
+    </div>
+</script>

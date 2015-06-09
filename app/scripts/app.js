@@ -17,5 +17,6 @@ angular.module('sekpGuideApp', [
     'ngTouch',
     'firebase',
     'firebase.ref',
-    'firebase.auth'
+    'firebase.auth',
+    'ui.bootstrap'
   ]);

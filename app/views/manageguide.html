@@ -1,0 +1,133 @@
+<div class="container">
+	<h3>Add new institution</h3>
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Name</h3>
+				</div>
+				<div class="panel-body">
+					<div class="input-group">
+						<input type="text" class="form-control" ng-model="newInstitution.name">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Short</h3>
+				</div>
+				<div class="panel-body">
+					<div class="input-group">
+						<input type="text" class="form-control" ng-model="newInstitution.short">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Status</h3>
+				</div>
+				<div class="panel-body">
+					<div class="input-group">
+						<input type="text" class="form-control" ng-model="newInstitution.status">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> <!-- End first row -->
+
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Year</h3>
+				</div>
+				<div class="panel-body">
+					<div class="input-group">
+		                <input type="text" class="form-control" ng-model="newInstitution.year">
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Website</h3>
+				</div>
+				<div class="panel-body">
+					<div class="input-group">
+						<input type="text" class="form-control" ng-model="newInstitution.website">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Category</h3>
+				</div>
+				<div class="panel-body">
+					<div class="input-group">
+						<select ng-options="o.name for o in categories" ng-model="newInstitution.category"></select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> <!-- End second row -->
+
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Description</h3>
+				</div>
+				<div class="panel-body">
+					<div class="input-group">
+						<textarea class="form-control" rows="5" ng-model="newInstitution.description"></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Powers</h3>
+				</div>
+				<div class="panel-body">
+					<div class="input-group">
+						<textarea class="form-control" rows="5" ng-model="newInstitution.powers"></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Areas</h3>
+				</div>
+				<div class="panel-body">
+					<div class="input-group">
+						<textarea class="form-control" rows="5" ng-model="newInstitution.areas"></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> <!-- End of third row -->
+
+	<div class="row">
+		<div class="col-sm-12">
+			<button class="btn btn-primary" ng-click="saveInstitution()">Save Institution</button>
+		</div>
+	</div>
+</div>
+
