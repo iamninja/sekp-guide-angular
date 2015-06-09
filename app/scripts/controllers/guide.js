@@ -24,7 +24,9 @@ angular.module('sekpGuideApp')
     }
 
     $scope.ignoreAccents = function(institution) {
-        if (!$scope.query) return true;
+        if (!$scope.query) {
+        	return true;
+        }
 
         var fullText = institution.name + ' ' + institution.short + ' ' + institution.status + ' ' + institution.description + ' ' + institution.powers + ' ' + institution.areas + ' ' + institution.category.name + ' ' + institution.year + ' ' + institution.website;
         var text = removeAccents(fullText.toLowerCase());

@@ -26,7 +26,9 @@ angular.module('sekpGuideApp')
     					 { name: 'Κοινωνική Έρευνα', id: 11}];
 
     $scope.saveInstitution = function() {
-    	if (!$scope.newInstitution) return;
+    	if (!$scope.newInstitution) {
+    		return;
+    	}
 
     	$scope.institutions.$add($scope.newInstitution)
     		.then(function(ref) {
