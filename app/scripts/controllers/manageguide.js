@@ -10,7 +10,6 @@
 angular.module('sekpGuideApp')
   .controller('ManageguideCtrl', function ($scope, Auth, Ref, $firebaseArray, $window) {
 
-    $scope.viewEdit = false;
     $scope.newInstitution = {};
     $scope.editInstitution = null;
     $scope.categories = [{ id: 1, name: 'Κοινωνική Ασφάλιση' },
