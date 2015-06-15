@@ -8,22 +8,24 @@
  * Controller of the sekpGuideApp
  */
 angular.module('sekpGuideApp')
-  .controller('ManageguideCtrl', function ($scope, Auth, Ref, $firebaseArray) {
-    $scope.institutions = $firebaseArray(Ref.child('institutions'));
+  .controller('ManageguideCtrl', function ($scope, Auth, Ref, $firebaseArray, $window) {
 
+    $scope.viewEdit = false;
     $scope.newInstitution = {};
+    $scope.editInstitution = null;
+    $scope.categories = [{ id: 1, name: 'Κοινωνική Ασφάλιση' },
+    					 { id: 2, name: 'Κοινωνική Πρόνοια' },
+    					 { id: 3, name: 'Πολιτική Υγείας' },
+    					 { id: 4, name: 'Πολιτική Απασχόλισης' },
+    					 { id: 5, name: 'Εκπαιδευτική Πολιτική' },
+    					 { id: 6, name: 'Αντεγκληματική Πολιτική' },
+    					 { id: 7, name: 'Μεταναστευτική Πολιτική' },
+    					 { id: 8, name: 'Πολιτική Φύλου' },
+    					 { id: 9, name: 'Στεγαστική Πολιτική' },
+    					 { id: 10, name: 'Πολιτική Περιβάλλοντος' },
+    					 { id: 11, name: 'Κοινωνική Έρευνα' }];
 
-    $scope.categories = [{ name: 'Κοινωνική Ασφάλιση', id: 1 },
-    					 { name: 'Κοινωνική Πρόνοια', id: 2 },
-    					 { name: 'Πολιτική Υγείας', id: 3 },
-    					 { name: 'Πολιτική Απασχόλισης', id: 4 },
-    					 { name: 'Εκπαιδευτική Πολιτική', id: 5},
-    					 { name: 'Αντεγκληματική Πολιτική', id: 6},
-    					 { name: 'Μεταναστευτική Πολιτική', id: 7},
-    					 { name: 'Πολιτική Φύλου', id: 8},
-    					 { name: 'Στεγαστική Πολιτική', id: 9},
-    					 { name: 'Πολιτική Περιβάλλοντος', id: 10},
-    					 { name: 'Κοινωνική Έρευνα', id: 11}];
+    $scope.institutions = $firebaseArray(Ref.child('institutions'));
 
     $scope.saveInstitution = function() {
     	if (!$scope.newInstitution) {
@@ -37,6 +39,14 @@ angular.module('sekpGuideApp')
     			$scope.institutions.$indexFor(id);
     			$scope.newInstitution = {};
     		});
+    };
+
+    $scope.saveEditedInstitution = function() {
+
+    };
+
+    $scope.deleteInstitution = function() {
+
     };
 
   });
