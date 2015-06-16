@@ -13,7 +13,7 @@
 	<br/>
 
 	<div class="row" id="feeds">
-		<article class="animate-articles" ng-animate="animate" ng-repeat="institution in institutions | filter : ignoreAccents" ng-click="openModal(institution)" id="{{institution.$id}}">
+		<article class="animate" ng-animate=" 'animate' " ng-repeat="institution in institutions | filter : ignoreAccents" ng-click="openModal(institution)" id="{{institution.$id}}">
             <h2>{{ institution.name }}</h2>
             <p class="bold">{{ institution.category.name }}</p>
             <div>{{ institution.description | limitTo : 200 }}...</div>

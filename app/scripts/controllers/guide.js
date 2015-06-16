@@ -11,6 +11,9 @@ angular.module('sekpGuideApp')
   .controller('GuideCtrl', function ($scope, Ref, $firebaseArray, $animate, $modal) {
     $scope.institutions = $firebaseArray(Ref.child('institutions'));
 
+    // Enable animations
+     // $scope.animationsEnabled = true;
+
     function removeAccents(value) {
         return value
             .replace(/ά/g, 'α')
@@ -38,7 +41,7 @@ angular.module('sekpGuideApp')
     $scope.openModal = function (institution) {
 
 		var modalInstance = $modal.open({
-			animation: false,
+			animation: true,
 			size: 'lg',
 			templateUrl: 'modalContent.html',
 			controller: 'ModalCtrl',
@@ -48,6 +51,9 @@ angular.module('sekpGuideApp')
 				}
 			}
 		});
+
+        $('.modal-backdrop').toggle();
+        $('.modal').toggle();
 
 		modalInstance.result.then(function (selectedItem) {
 			$scope.selected = selectedItem;

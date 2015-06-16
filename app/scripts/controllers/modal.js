@@ -13,8 +13,8 @@ angular.module('sekpGuideApp')
 
     $scope.cancel = function () {
 		$modalInstance.close();
-		// $('body').removeClass('modal-open');
-		// $('.modal-backdrop').remove();
-		// $('.modal').remove();
+		$('body').removeClass('modal-open');
+		$('.modal-backdrop').toggle();
+		$('.modal').toggle();
 	};
   });
