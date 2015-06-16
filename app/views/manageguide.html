@@ -1,4 +1,5 @@
 <div class="container">
+	<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
 	<tabset justified="true">
 		<tab heading="Add new institution"> <!-- Start of add view -->
 			<h3>Add new institution</h3>
@@ -128,20 +129,21 @@
 
 			<div class="row">
 				<div class="col-sm-12">
-					<button class="btn btn-primary" ng-click="saveInstitution()">Save Institution</button>
+					<button class="btn btn-primary" ng-click="saveInstitution(newInstitution)">Save Institution</button>
 				</div>
 			</div>
 		</tab> <!-- End of add view -->
 
 		<tab heading="Edit institution"> <!-- Start of edit view -->
-			<!-- <pre>{{ editInstitution }}</pre> -->
+			<h3>Edit {{ toEditInstitution.name || 'institution' }}</h3>
+			<pre>{{ toEditInstitution }}</pre>
 			<div class="row">
 				<div class="col-sm-6">
 					<label for="typeahead">Choose institution to edit</label>
-					<input type="text" ng-model="editInstitution" name="typeahead" typeahead="institution as institution.name for institution in institutions | filter:{ name: $viewValue } | limitTo:8" class="form-control" ng-init="editInstitution.category.name">
+					<input type="text" ng-model="toEditInstitution" name="typeahead" typeahead="institution as institution.name for institution in institutions | filter:{ name: $viewValue } | limitTo:8" class="form-control" ng-init="toEditInstitution.category.name">
 				</div>
 			</div>
-			<h3>Edit {{ editInstitution.name || 'institution' }}</h3>
+			<br>
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="panel panel-default">
@@ -150,7 +152,7 @@
 						</div>
 						<div class="panel-body">
 							<div class="input-group">
-								<input type="text" class="form-control" ng-model="editInstitution.name">
+								<input type="text" class="form-control" ng-model="toEditInstitution.name">
 							</div>
 						</div>
 					</div>
@@ -163,7 +165,7 @@
 						</div>
 						<div class="panel-body">
 							<div class="input-group">
-								<input type="text" class="form-control" ng-model="editInstitution.short">
+								<input type="text" class="form-control" ng-model="toEditInstitution.short">
 							</div>
 						</div>
 					</div>
@@ -176,7 +178,7 @@
 						</div>
 						<div class="panel-body">
 							<div class="input-group">
-								<input type="text" class="form-control" ng-model="editInstitution.status">
+								<input type="text" class="form-control" ng-model="toEditInstitution.status">
 							</div>
 						</div>
 					</div>
@@ -191,7 +193,7 @@
 						</div>
 						<div class="panel-body">
 							<div class="input-group">
-				                <input type="text" class="form-control" ng-model="editInstitution.year">
+				                <input type="text" class="form-control" ng-model="toEditInstitution.year">
 
 							</div>
 						</div>
@@ -205,7 +207,7 @@
 						</div>
 						<div class="panel-body">
 							<div class="input-group">
-								<input type="text" class="form-control" ng-model="editInstitution.website">
+								<input type="text" class="form-control" ng-model="toEditInstitution.website">
 							</div>
 						</div>
 					</div>
@@ -218,7 +220,7 @@
 						</div>
 						<div class="panel-body">
 							<div class="input-group">
-								<select ng-options="o as o.name for o in categories" ng-model="editInstitution.category"></select>
+								<select ng-options="o as o.name for o in categories" ng-model="toEditInstitution.category"></select>
 							</div>
 						</div>
 					</div>
@@ -233,7 +235,7 @@
 						</div>
 						<div class="panel-body">
 							<div class="input-group">
-								<textarea class="form-control" rows="5" ng-model="editInstitution.description"></textarea>
+								<textarea class="form-control" rows="5" ng-model="toEditInstitution.description"></textarea>
 							</div>
 						</div>
 					</div>
@@ -246,7 +248,7 @@
 						</div>
 						<div class="panel-body">
 							<div class="input-group">
-								<textarea class="form-control" rows="5" ng-model="editInstitution.powers"></textarea>
+								<textarea class="form-control" rows="5" ng-model="toEditInstitution.powers"></textarea>
 							</div>
 						</div>
 					</div>
@@ -259,7 +261,7 @@
 						</div>
 						<div class="panel-body">
 							<div class="input-group">
-								<textarea class="form-control" rows="5" ng-model="editInstitution.areas"></textarea>
+								<textarea class="form-control" rows="5" ng-model="toEditInstitution.areas"></textarea>
 							</div>
 						</div>
 					</div>
@@ -268,13 +270,25 @@
 
 			<div class="row">
 				<div class="col-sm-12">
-					<button class="btn btn-primary" ng-click="saveEditedInstitution()">Save Changes</button>
+					<button class="btn btn-primary" ng-click="saveEditedInstitution(toEditInstitution)">Save Changes</button>
 				</div>
 			</div>
 		</tab> <!-- End of edit view -->
 
 		<tab heading="Delete institution">
-
+			<h3>Delete {{ toDelettoEInstitution.name || 'institution' }}</h3>
+			<div class="row">
+				<div class="col-sm-6">
+					<label for="typeahead">Choose institution to delete</label>
+					<input type="text" ng-model="toDeleteInstitution" name="typeahead" typeahead="institution as institution.name for institution in institutions | filter:{ name: $viewValue } | limitTo:8" class="form-control">
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-sm-12">
+					<button class="btn btn-danger" ng-click="deleteInstitution(toDeleteInstitution)">Delete Institution</button>
+				</div>
+			</div>
 		</tab>
 
 	</tabset>
