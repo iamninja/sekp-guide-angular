@@ -52,14 +52,12 @@ angular.module('sekpGuideApp')
 			}
 		});
 
-        $('.modal-backdrop').toggle();
-        $('.modal').toggle();
-
 		modalInstance.result.then(function (selectedItem) {
-			$scope.selected = selectedItem;
+
 		}, function () {
-			console.log('Modal dismissed at: ' + new Date());
+			// console.log('Modal dismissed at: ' + new Date());
 		});
 	};
+
 
   });
