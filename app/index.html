@@ -21,7 +21,7 @@
 
     <!-- Add your site or application content here -->
     <div class="header" ng-cloak="">
-      <div class="navbar navbar-default" role="navigation">
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
 
@@ -32,13 +32,18 @@
               <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="#/">sekpGuide</a>
+            <!-- <a class="navbar-brand" href="#/">sekpGuide</a> -->
           </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Αναζήτηση">
+            </div>
+          </form>
+
+            <ul class="nav navbar-nav navbar-right">
               <!-- //angularfire -->
               <!-- <li><a ng-href="#/chat">Chat</a></li> -->
               <li><a ng-href="#/guide">Guide</a></li>
