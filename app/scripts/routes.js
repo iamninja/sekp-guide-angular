@@ -57,11 +57,14 @@ angular.module('sekpGuideApp')
   // before trying to access that route
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
+      // .when('/', {
+      //   templateUrl: 'views/main.html',
+      //   controller: 'MainCtrl'
+      // })
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/guide.html',
+        controller: 'GuideCtrl'
       })
-
       .when('/chat', {
         templateUrl: 'views/chat.html',
         controller: 'ChatCtrl'
